@@ -17,6 +17,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - libopenblas      # [win]
   host:
     - python
     - pip
@@ -24,7 +25,6 @@ requirements:
     - numpy
     - fftw >=3.3.8
     - liblapack >=3.8  # [unix]
-    - libopenblas      # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
