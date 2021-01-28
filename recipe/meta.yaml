@@ -23,7 +23,8 @@ requirements:
     - setuptools
     - numpy
     - fftw >=3.3.8
-    - liblapack >=3.8
+    - liblapack >=3.8  # [unix]
+    - libopenblas      # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
