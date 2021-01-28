@@ -11,7 +11,6 @@ source:
 
 build:
   number: 1
-  skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -43,13 +42,16 @@ requirements:
 
 test:
   requires:
-    - make
-    - tar
-    - wget
+    - make     # [unix]
+    - tar      # [unix]
+    - wget     # [unix]
+    - m2-make  # [win]
+    - m2-tar   # [win]
   imports:
     - pyshtools
   commands:
-    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    - powershell -Command "Invoke-WebRequest -Uri https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"  # [win]
+    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz                                          # [unix]
     - tar -xvf {{ name }}-{{ version }}.tar.gz
     - cd {{ name }}-{{ version }}
     - make -C examples/python -f Makefile no-timing
