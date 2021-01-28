@@ -28,7 +28,8 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
     - fftw >=3.3.8
-    - liblapack >=3.8
+    - liblapack >=3.8  # [unix]
+    - libopenblas      # [win]
     - scipy >=0.14.0
     - matplotlib-base >=3.3
     - astropy
