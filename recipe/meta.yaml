@@ -10,8 +10,7 @@ source:
   sha256: 732ccb498fc1581c0ae090eead0af142d2f61cfedac15d337af989f0d7288fa8
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -42,17 +41,18 @@ requirements:
     - cartopy >=0.18
 
 test:
-  requires:
-    - make
-    - tar
-    - wget
+  #requires:
+    #- make
+    #- tar
+    #- wget
   imports:
     - pyshtools
   commands:
-    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    - tar -xvf {{ name }}-{{ version }}.tar.gz
-    - cd {{ name }}-{{ version }}
-    - make -C examples/python -f Makefile no-timing
+    - python -c "from numpy.distutils.system_info import get_info; print(get_info('lapack_opt', notfound_action=2))"
+    #- wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    #- tar -xvf {{ name }}-{{ version }}.tar.gz
+    #- cd {{ name }}-{{ version }}
+    #- make -C examples/python -f Makefile no-timing
 
 about:
   home: https://github.com/SHTOOLS/SHTOOLS
