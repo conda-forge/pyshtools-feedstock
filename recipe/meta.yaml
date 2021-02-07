@@ -50,6 +50,8 @@ test:
   imports:
     - pyshtools
   commands:
+    # TODO - Figure out why the following line is needed.
+    - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64  # [win64]
     - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz                                                                                   # [not win]
     - powershell -Command "Invoke-WebRequest -Uri https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz -OutFile {{ name }}-{{ version }}.tar.gz"  # [win]
     - tar -xvf {{ name }}-{{ version }}.tar.gz
