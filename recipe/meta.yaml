@@ -10,9 +10,11 @@ source:
   sha256: 732ccb498fc1581c0ae090eead0af142d2f61cfedac15d337af989f0d7288fa8
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
+  # catch errors
+  error_overlinking: True
 
 requirements:
   build:
@@ -22,9 +24,10 @@ requirements:
     - python
     - pip
     - setuptools
+    # Don't add constraints to the following 3 to use conda-forge global settings
     - numpy
-    - fftw >=3.3.8
-    - liblapack >=3.8
+    - fftw
+    - liblapack
   run:
     - python
     - {{ pin_compatible('numpy') }}
