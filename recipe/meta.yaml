@@ -1,5 +1,5 @@
 {% set name = "pyshtools" %}
-{% set version = "4.8" %}
+{% set version = "4.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 732ccb498fc1581c0ae090eead0af142d2f61cfedac15d337af989f0d7288fa8
+  sha256: 43aa80e954e1a222436c8643d342541880f6402b23cdde9d2cd9fdd1097d4e6f
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
   # catch errors
@@ -39,10 +39,11 @@ requirements:
     - xarray
     - requests
     - gmt >=6.1.1
-    - pygmt >=0.2
+    - pygmt >=0.3
     - pooch >=1.1
     - tqdm
     - cartopy >=0.18
+    - ducc0 >=0.15
 
 test:
   requires:
