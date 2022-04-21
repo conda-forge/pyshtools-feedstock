@@ -23,7 +23,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools <=62.0.0
     # Don't add constraints to the following 3 to use conda-forge global settings
     - numpy
     - fftw
