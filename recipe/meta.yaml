@@ -1,5 +1,5 @@
 {% set name = "pyshtools" %}
-{% set version = "4.9.1" %}
+{% set version = "4.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 43aa80e954e1a222436c8643d342541880f6402b23cdde9d2cd9fdd1097d4e6f
+  sha256: 98db3429be79113a6ae08ad0ecaa92325a588e4d044937a2344d4f60c70e5b70
 
 build:
   number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
   # catch errors
-  error_overlinking: True
+  error_overlinking: true
 
 requirements:
   build:
