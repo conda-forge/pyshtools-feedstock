@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [py<38 or win]
   script: {{ PYTHON }} -m pip install . -vv
   # catch errors
   error_overlinking: true
@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
-    - python >=3.8
+    - python
     - pip
     - setuptools
     # Don't add constraints to the following 3 to use conda-forge global settings
@@ -30,7 +30,7 @@ requirements:
     - liblapack
     - libblas
   run:
-    - python >=3.8
+    - python
     - {{ pin_compatible('numpy') }}
     - fftw >=3.3.8
     - scipy >=0.14.0
