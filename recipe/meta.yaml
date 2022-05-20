@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
-    - python
+    - python >=3.8
     - pip
     - setuptools
     # Don't add constraints to the following 3 to use conda-forge global settings
@@ -30,7 +30,7 @@ requirements:
     - liblapack
     - libblas
   run:
-    - python
+    - python >=3.8
     - {{ pin_compatible('numpy') }}
     - fftw >=3.3.8
     - scipy >=0.14.0
