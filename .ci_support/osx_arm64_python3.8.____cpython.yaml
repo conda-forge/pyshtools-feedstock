@@ -32,8 +32,3 @@ python:
 - 3.8.* *_cpython
 target_platform:
 - osx-arm64
-zip_keys:
-- - c_compiler_version
-  - fortran_compiler_version
-- - python
-  - numpy
