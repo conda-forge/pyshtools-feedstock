@@ -10,8 +10,8 @@ source:
   sha256: 98db3429be79113a6ae08ad0ecaa92325a588e4d044937a2344d4f60c70e5b70
 
 build:
-  number: 1
-  skip: true  # [py<38 or win]
+  number: 2
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   # catch errors
   error_overlinking: true
@@ -47,17 +47,19 @@ requirements:
 
 test:
   requires:
-    - make
-    - tar
-    - wget
+    - make     # [not win]
+    - tar      # [not win]
+    - wget     # [not win]
+    - m2-make  # [win]
+    - m2-tar   # [win]
   imports:
     - pyshtools
   commands:
-    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz                                                                                   # [not win]
+    - powershell -Command "Invoke-WebRequest -Uri https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz -OutFile {{ name }}-{{ version }}.tar.gz"  # [win]
     - tar -xvf {{ name }}-{{ version }}.tar.gz
     - cd {{ name }}-{{ version }}
     - make -C examples/python -f Makefile no-timing
-
 about:
   home: https://github.com/SHTOOLS/SHTOOLS
   license: GPL-2.0-or-later
