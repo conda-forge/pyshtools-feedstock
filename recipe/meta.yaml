@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 59a5403c901dd6cbe431f6a5e8213f435fcee3f1ed3020077f0f1608ff9d4f2a
+  patches:
+    - 0001-cross-python-doc-build.patch  # [build_platform != target_platform]
 
 build:
   number: 1
