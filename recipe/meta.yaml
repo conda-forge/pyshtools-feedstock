@@ -10,7 +10,7 @@ source:
   sha256: 59a5403c901dd6cbe431f6a5e8213f435fcee3f1ed3020077f0f1608ff9d4f2a
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   # catch errors
@@ -20,6 +20,9 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
   host:
     - python
     - pip
