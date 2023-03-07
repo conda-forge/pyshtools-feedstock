@@ -1,0 +1,26 @@
+From d9967ac1edf233b0774be5a440a21074f65d2b06 Mon Sep 17 00:00:00 2001
+From: k-dominik <k-dominik@users.noreply.github.com>
+Date: Tue, 7 Mar 2023 09:30:55 +0100
+Subject: [PATCH] disable custom build script
+
+this diables the doc building and could fix arm-64 builds
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 05381a8..3b4b412 100644
+--- a/setup.py
++++ b/setup.py
+@@ -225,7 +225,7 @@ def configuration(parent_package='', top_path=None):
+ 
+ 
+ CMDCLASS = numpy_cmdclass
+-CMDCLASS.update({'build': build, 'install': install, 'develop': develop})
++CMDCLASS.update({'install': install, 'develop': develop})
+ CMDCLASS = versioneer.get_cmdclass(CMDCLASS)
+ 
+ metadata = dict(
+-- 
+2.37.1 (Apple Git-137.1)
+
