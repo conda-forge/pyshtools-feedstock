@@ -23,10 +23,14 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - pkg-config
   host:
     - python
     - pip
     - setuptools
+    - meson-python >=0.14
+    - setuptools_scm>=8
+    - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
