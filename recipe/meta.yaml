@@ -29,13 +29,12 @@ requirements:
     - pip
     - setuptools
     - meson-python >=0.14
-    - setuptools_scm>=8
+    - setuptools_scm >=8
     - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
-    - liblapack
-    - libblas
+    - blas-devel
   run:
     - python
     - {{ pin_compatible('numpy') }}
