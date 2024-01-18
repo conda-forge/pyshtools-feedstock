@@ -33,11 +33,10 @@ requirements:
     - meson-python >=0.14
     - setuptools_scm >=8
     - jupyter
-    # Don't add constraints to the following 4 to use conda-forge global settings
+    # Don't add constraints to the following to use conda-forge global settings
     - numpy
     - fftw
-    - liblapack
-    - libblas
+    - libopenblas
   run:
     - python
     - {{ pin_compatible('numpy') }}
