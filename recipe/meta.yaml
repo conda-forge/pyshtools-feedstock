@@ -25,6 +25,7 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ compiler('fortran') }}
     - pkg-config
+    - cmake
   host:
     - python
     - pip
