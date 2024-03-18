@@ -1,5 +1,5 @@
 {% set name = "pyshtools" %}
-{% set version = "4.10.4" %}
+{% set version = "4.12.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4edbee572990603c40f25daf1c8ff5d3429ec1c52343e0118fc2ae28f1d5588a
+  sha256: 3c7f063cf13354a85fb5a03c0f96abdfa9f2320100a13d5a42087e81473abde0
 
 build:
   number: 0
