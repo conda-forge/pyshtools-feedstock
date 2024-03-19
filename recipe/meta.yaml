@@ -23,6 +23,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
+    - cmake                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - pkg-config
