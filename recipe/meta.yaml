@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<38]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv
   # catch errors
   error_overlinking: true
@@ -44,8 +44,8 @@ requirements:
     - astropy >=4.0
     - xarray
     - requests
-    - gmt >=6.1.1
-    - pygmt >=0.3
+    - gmt >=6.3.0
+    - pygmt >=0.7.0
     - pooch >=1.1
     - tqdm
     - cartopy >=0.18
