@@ -38,8 +38,8 @@ requirements:
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
-    - openblas  # [not win]
-    - mkl       # [win]
+    - openblas          # [not win]
+    - libopenblas       # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -55,8 +55,7 @@ requirements:
     - tqdm
     - cartopy >=0.18
     - ducc0 >=0.15
-    - libopenblas  # [not win]
-    - mkl       # [win]
+    - libopenblas
 
 test:
   requires:
