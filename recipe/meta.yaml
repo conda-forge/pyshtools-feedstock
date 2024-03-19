@@ -37,7 +37,7 @@ requirements:
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
-    - blas-devel
+    - liblapack
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -53,7 +53,8 @@ requirements:
     - tqdm
     - cartopy >=0.18
     - ducc0 >=0.15
-    - libopenblas
+    - openblas  # [not win]
+    - mkl       # [win]
 
 test:
   requires:
