@@ -23,14 +23,15 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
     - cmake
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - pkg-config
   host:
     - python
     - pip
     - setuptools
+    - pkg-config
     - meson-python >=0.14
     - setuptools_scm >=8
     - jupyter
@@ -53,7 +54,7 @@ requirements:
     - tqdm
     - cartopy >=0.18
     - ducc0 >=0.15
-    - openblas  # [not win]
+    - libopenblas  # [not win]
     - mkl       # [win]
 
 test:
