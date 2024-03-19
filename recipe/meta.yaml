@@ -50,6 +50,7 @@ requirements:
     - tqdm
     - cartopy >=0.18
     - ducc0 >=0.15
+    - blas-devel
 
 test:
   requires:
