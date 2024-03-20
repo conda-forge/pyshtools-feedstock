@@ -37,9 +37,7 @@ requirements:
     - jupyter
     - numpy
     - fftw
-    - openblas          # [not win]
-    - liblapack         # [win]
-    - libblas           # [win]
+    - openblas
   run:
     - python
     - {{ pin_compatible('numpy') }}
