@@ -26,7 +26,10 @@ requirements:
     - pkg-config                             # [build_platform != target_platform]
     - cmake
     - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}              # [not win]
+    # use flang as fortran compiler on windows (uses clang driver)
+    - flang                                  # [win]
+    # use llvm linker for both of the above
     - lld                                    # [win]
   host:
     - python
