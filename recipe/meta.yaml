@@ -32,29 +32,29 @@ requirements:
     - pip
     - setuptools
     - pkg-config
-    - meson-python >=0.14
-    - setuptools_scm >=8
+    - meson-python
+    - setuptools_scm
     - jupyter
-    # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
     - openblas          # [not win]
-    - libopenblas       # [win]
+    - liblapack         # [win]
+    - libblas           # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('fftw') }}
-    - scipy >=0.14.0
-    - matplotlib-base >=3.3
-    - astropy >=4.0
+    - scipy
+    - matplotlib-base
+    - astropy
     - xarray
     - requests
     - gmt >=6.3.0
     - pygmt >=0.7.0
-    - pooch >=1.1
-    - tqdm
     - cartopy >=0.18
-    - ducc0 >=0.15
+    - pooch
+    - tqdm
+    - ducc0
     - libopenblas
 
 test:
