@@ -27,6 +27,7 @@ requirements:
     - cmake
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+    - lld                                    # [win]
   host:
     - python
     - pip
