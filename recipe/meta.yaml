@@ -21,7 +21,6 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
-    - pkg-config                             # [build_platform != target_platform]
     - cmake
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('c') }}  # [unix]
@@ -33,6 +32,7 @@ requirements:
     - setuptools
     - meson-python >=0.14
     - setuptools_scm >=8
+    - pkg-config
     - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
