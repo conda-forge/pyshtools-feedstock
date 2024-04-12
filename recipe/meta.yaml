@@ -21,12 +21,13 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
-    - pkg-config                             # [build_platform != target_platform]
+    - pkg-config                             # [unix]
     - cmake
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
     - python
+    - pkg-config  # [win]
     - pip
     - setuptools
     - meson-python >=0.14
