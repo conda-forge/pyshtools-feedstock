@@ -12,8 +12,6 @@ source:
 build:
   number: 0
   skip: true  # [py<39]
-  script: export LDFLAGS="${LDFLAGS} -llapack -lblas" && export LDFLAGS_LD="${LDFLAGS_LD} -llapack -lblas" && {{ PYTHON }} -m pip install . -vv
-  # catch errors
   error_overlinking: true
 
 requirements:
