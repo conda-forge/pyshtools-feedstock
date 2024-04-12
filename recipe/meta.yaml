@@ -37,6 +37,7 @@ requirements:
     - fftw
     - libblas
     - liblapack
+    - libpgmath  # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
