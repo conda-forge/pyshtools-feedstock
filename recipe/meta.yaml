@@ -61,7 +61,7 @@ test:
     - pyshtools
   commands:
     - make -C examples/python -f Makefile no-timing
-  files:
+  source_files:
     - examples/python/*
     
 about:
