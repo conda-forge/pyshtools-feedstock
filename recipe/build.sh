@@ -1,7 +1,4 @@
 #!/bin/bash
-export LDFLAGS="${LDFLAGS} -llapack -lblas -lfftw3 -lfftw3f"
-export LDFLAGS_LD="${LDFLAGS_LD} -llapack -lblas -lfftw3 -lfftw3f" 
-
 set -ex
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
