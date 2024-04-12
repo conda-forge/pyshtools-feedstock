@@ -16,10 +16,6 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 fftw:
 - '3'
-fortran_compiler:
-- gfortran
-fortran_compiler_version:
-- '12'
 libblas:
 - 3.9 *netlib
 liblapack:
@@ -35,8 +31,6 @@ python:
 target_platform:
 - linux-64
 zip_keys:
-- - c_compiler_version
-  - fortran_compiler_version
 - - c_stdlib_version
   - cdt_name
 - - python
