@@ -62,7 +62,7 @@ test:
   commands:
     - make -C examples/python -f Makefile no-timing
   source_files:
-    - examples/python/*
+    - examples/*
     
 about:
   home: https://github.com/SHTOOLS/SHTOOLS
