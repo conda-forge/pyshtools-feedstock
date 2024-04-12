@@ -65,7 +65,7 @@ test:
   commands:
     - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz                                                                                   # [not win]
     - powershell -Command "Invoke-WebRequest -Uri https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz -OutFile {{ name }}-{{ version }}.tar.gz"  # [win]
-    - tar -xvf {{ name }}-{{ version }}.tar.gz
+    - tar -xvzf {{ name }}-{{ version }}.tar.gz
     - cd {{ name }}-{{ version }}
     - make -C examples/python -f Makefile no-timing
 about:
