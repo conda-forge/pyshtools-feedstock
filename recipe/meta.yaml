@@ -22,15 +22,17 @@ requirements:
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - cmake
-    - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('c') }}  # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('m2w64_fortran') }}  # [win]
   host:
     - python
-    - pkg-config  # [win]
     - pip
     - setuptools
     - meson-python >=0.14
     - setuptools_scm >=8
+    - pkg-config
     - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
