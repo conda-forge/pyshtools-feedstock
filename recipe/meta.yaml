@@ -63,11 +63,10 @@ test:
   imports:
     - pyshtools
   commands:
-    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz                                                                                   # [not win]
-    - powershell -Command "Invoke-WebRequest -Uri https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz -OutFile {{ name }}-{{ version }}.tar.gz"  # [win]
-    - tar -xvzf {{ name }}-{{ version }}.tar.gz
-    - cd {{ name }}-{{ version }}
     - make -C examples/python -f Makefile no-timing
+  files:
+    - examples/*
+    
 about:
   home: https://github.com/SHTOOLS/SHTOOLS
   license: GPL-2.0-or-later
