@@ -23,7 +23,6 @@ requirements:
     - ninja                                  # [build_platform != target_platform]
     - cmake
     - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
   host:
     - python
     - pip
