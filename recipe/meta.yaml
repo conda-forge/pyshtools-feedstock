@@ -56,10 +56,7 @@ requirements:
 test:
   requires:
     - make     # [not win]
-    - tar      # [not win]
-    - wget     # [not win]
     - m2-make  # [win]
-    - m2-tar   # [win]
   imports:
     - pyshtools
   commands:
