@@ -1,5 +1,5 @@
 {% set name = "pyshtools" %}
-{% set version = "4.10.4" %}
+{% set version = "4.12.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4edbee572990603c40f25daf1c8ff5d3429ec1c52343e0118fc2ae28f1d5588a
+  sha256: 966f1a1b99af0e87d8e3ceed116d320cda12a3c93771336804cd6b206698d79a
 
 build:
   number: 0
-  skip: true  # [py<38]
-  script: {{ PYTHON }} -m pip install . -vv
-  # catch errors
+  skip: true  # [py<39]
   error_overlinking: true
 
 requirements:
@@ -21,51 +19,51 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - meson-python                           # [build_platform != target_platform]
+    - ninja                                  # [build_platform != target_platform]
+    - cmake
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - pkg-config
   host:
     - python
     - pip
     - setuptools
     - meson-python >=0.14
     - setuptools_scm >=8
+    - pkg-config 
     - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
-    - blas-devel
+    - libblas
+    - liblapack
+    - libpgmath  # [win]
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('fftw') }}
-    - scipy >=0.14.0
-    - matplotlib-base >=3.3
-    - astropy >=4.0
+    - scipy
+    - matplotlib-base
+    - astropy
     - xarray
     - requests
-    - gmt >=6.1.1
-    - pygmt >=0.3
-    - pooch >=1.1
-    - tqdm
+    - gmt >=6.3.0
+    - pygmt >=0.7.0
     - cartopy >=0.18
-    - ducc0 >=0.15
+    - pooch
+    - ducc0
 
 test:
   requires:
     - make     # [not win]
-    - tar      # [not win]
-    - wget     # [not win]
     - m2-make  # [win]
-    - m2-tar   # [win]
   imports:
     - pyshtools
   commands:
-    - wget https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz                                                                                   # [not win]
-    - powershell -Command "Invoke-WebRequest -Uri https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz -OutFile {{ name }}-{{ version }}.tar.gz"  # [win]
-    - tar -xvf {{ name }}-{{ version }}.tar.gz
-    - cd {{ name }}-{{ version }}
     - make -C examples/python -f Makefile no-timing
+  source_files:
+    - examples/*
+    
 about:
   home: https://github.com/SHTOOLS/SHTOOLS
   license: GPL-2.0-or-later
@@ -86,3 +84,4 @@ extra:
     - megies
     - moorepants
     - markwieczorek
+    - jan-janssen
