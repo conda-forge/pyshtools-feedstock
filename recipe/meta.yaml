@@ -35,6 +35,7 @@ requirements:
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
+    - libblas
     - liblapack
   run:
     - python
