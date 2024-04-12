@@ -23,8 +23,10 @@ requirements:
     - ninja                                  # [build_platform != target_platform]
     - pkg-config                             # [build_platform != target_platform]
     - cmake
-    - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('c') }}  # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('m2w64_fortran') }}  # [win]
   host:
     - python
     - pip
