@@ -10,7 +10,7 @@ source:
   sha256: 966f1a1b99af0e87d8e3ceed116d320cda12a3c93771336804cd6b206698d79a
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39]
   error_overlinking: true
 
@@ -22,6 +22,7 @@ requirements:
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - cmake
+    - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
@@ -29,9 +30,8 @@ requirements:
     - pip
     - setuptools
     - meson-python >=0.14
-    - setuptools_scm >=8
-    - pkg-config 
-    - jupyter
+    - setuptools_scm >=8 
+    - jupyter_core
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
     - fftw
@@ -40,8 +40,6 @@ requirements:
     - libpgmath  # [win]
   run:
     - python
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('fftw') }}
     - scipy
     - matplotlib-base
     - astropy
