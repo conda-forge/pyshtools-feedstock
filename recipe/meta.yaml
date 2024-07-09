@@ -10,8 +10,8 @@ source:
   sha256: cc4a323e9cbc905c04ae9e2e9fedeea6d76f3315a6863ede353a4dec87b8c018
 
 build:
-  number: 0
-  skip: true  # [py<39 or win]
+  number: 1
+  skip: true  # [py<39]
   error_overlinking: true
 
 requirements:
@@ -22,6 +22,7 @@ requirements:
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
     - cmake
+    - make
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
