@@ -1,5 +1,5 @@
 {% set name = "pyshtools" %}
-{% set version = "4.12.2" %}
+{% set version = "4.13.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 966f1a1b99af0e87d8e3ceed116d320cda12a3c93771336804cd6b206698d79a
+  sha256: cc4a323e9cbc905c04ae9e2e9fedeea6d76f3315a6863ede353a4dec87b8c018
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<39]
   error_overlinking: true
 
@@ -31,7 +31,7 @@ requirements:
     - setuptools
     - meson-python >=0.14
     - setuptools_scm >=8
-    - pkg-config 
+    - pkg-config
     - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
     - numpy
@@ -63,7 +63,7 @@ test:
     - make -C examples/python -f Makefile no-timing
   source_files:
     - examples/*
-    
+
 about:
   home: https://github.com/SHTOOLS/SHTOOLS
   license: GPL-2.0-or-later
