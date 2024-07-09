@@ -20,9 +20,9 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
-    - ninja                                  # [build_platform != target_platform]
     - cmake
-    - make
+    - make                                   # [not win]
+    - ninja                                  # [win]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
@@ -57,7 +57,7 @@ requirements:
 test:
   requires:
     - make     # [not win]
-    - m2-make  # [win]
+    - ninja    # [win]
   imports:
     - pyshtools
   commands:
