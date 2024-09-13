@@ -10,7 +10,7 @@ source:
   sha256: cc4a323e9cbc905c04ae9e2e9fedeea6d76f3315a6863ede353a4dec87b8c018
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39 or win]
   error_overlinking: true
 
@@ -47,16 +47,19 @@ requirements:
     - astropy
     - xarray
     - requests
-    - gmt >=6.3.0
-    - pygmt >=0.7.0
-    - cartopy >=0.18
     - pooch
     - ducc0
+  run_constrained:
+    - cartopy >=0.18
+    - gmt >=6.3.0
+    - pygmt >=0.7.0
 
 test:
   requires:
     - make     # [not win]
     - m2-make  # [win]
+    - cartopy
+    - pygmt
   imports:
     - pyshtools
   commands:
