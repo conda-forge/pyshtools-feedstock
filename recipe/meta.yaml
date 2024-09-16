@@ -21,6 +21,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
+    - ninja                                  # [win]
     - cmake
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
