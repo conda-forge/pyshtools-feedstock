@@ -45,7 +45,7 @@ requirements:
     - {{ pin_compatible('fftw') }}
     - scipy
     - matplotlib-base
-    - astropy
+    - astropy-base
     - xarray
     - requests
     - pooch
