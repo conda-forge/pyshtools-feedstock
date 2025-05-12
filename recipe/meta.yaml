@@ -10,8 +10,8 @@ source:
   sha256: cc4a323e9cbc905c04ae9e2e9fedeea6d76f3315a6863ede353a4dec87b8c018
 
 build:
-  number: 1
-  skip: true  # [py<39 or win]
+  number: 2
+  skip: true  # [py<39]
   error_overlinking: true
 
 requirements:
@@ -24,12 +24,14 @@ requirements:
     - cmake
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [not win]
+    - flang_win-64               # [win]
   host:
     - python
     - pip
     - setuptools
     - meson-python >=0.14
+    - meson-python <0.18  # [win]
     - setuptools_scm >=8
     - pkg-config
     - jupyter
@@ -44,7 +46,7 @@ requirements:
     - {{ pin_compatible('fftw') }}
     - scipy
     - matplotlib-base
-    - astropy
+    - astropy-base
     - xarray
     - requests
     - pooch
