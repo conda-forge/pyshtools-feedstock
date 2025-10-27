@@ -50,6 +50,7 @@ requirements:
     - requests
     - pooch
     - ducc0
+    - tqdm
   run_constrained:
     - cartopy >=0.18
     - gmt >=6.3.0
@@ -61,9 +62,11 @@ test:
     - m2-make  # [win]
     - cartopy
     - pygmt
+    - pip
   imports:
     - pyshtools
   commands:
+    - pip check
     - make -C examples/python -f Makefile no-timing
   source_files:
     - examples/*
