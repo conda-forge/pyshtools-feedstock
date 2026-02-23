@@ -35,7 +35,7 @@ requirements:
     - pkg-config
     - jupyter
     # Don't add constraints to the following 4 to use conda-forge global settings
-    - numpy <2.0.0,>=1.10.4
+    - numpy
     - fftw
     - libblas
     - liblapack
@@ -52,7 +52,8 @@ requirements:
     - ducc0
     - tqdm
     - boule >=0.5.0
-    - pandas <2.0.0,>=1.0.0
+    - pandas
+    - bqplot >=0.12.45
   run_constrained:
     - cartopy >=0.18
     - gmt >=6.3.0
