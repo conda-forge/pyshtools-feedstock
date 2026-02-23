@@ -51,6 +51,7 @@ requirements:
     - pooch
     - ducc0
     - tqdm
+    - boule >=0.5.0
   run_constrained:
     - cartopy >=0.18
     - gmt >=6.3.0
