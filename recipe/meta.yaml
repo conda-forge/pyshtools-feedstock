@@ -10,8 +10,8 @@ source:
   sha256: 40a20f1292cafb29b095139abd07c0cbf2da09b91b6573512e86054503914677
 
 build:
-  number: 0
-  skip: true  # [py<39 or win]
+  number: 1
+  skip: true  # [py<39]
   error_overlinking: true
 
 requirements:
@@ -45,7 +45,7 @@ requirements:
     - {{ pin_compatible('fftw') }}
     - scipy
     - matplotlib-base
-    - astropy
+    - astropy-base
     - xarray
     - requests
     - pooch
