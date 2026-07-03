@@ -10,7 +10,7 @@ source:
   sha256: 40a20f1292cafb29b095139abd07c0cbf2da09b91b6573512e86054503914677
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<39]
   error_overlinking: true
 
